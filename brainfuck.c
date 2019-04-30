@@ -3,11 +3,13 @@
 
 void parse(char *str);
 
+
 int indexn = 0;
 int i = 0;
 stack_256 st;
 char program[30000] = {0};
 char current;
+
 
 int main(int argc, char *argv[]) {
     if (argc == 2) {
