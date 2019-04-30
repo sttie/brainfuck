@@ -1,14 +1,7 @@
-#include <unistd.h>
-#include <stdlib.h>
+#include <stdio.h>
+#include "stack.h"
 
-typedef struct {
-    int stack[256];
-    int top;
-} stack_256;
-
-void    push(int value, stack_256* stack);
-int     pop(stack_256* stack);
-void    parse(char *str);
+void parse(char *str);
 
 int indexn = 0;
 int i = 0;
@@ -21,7 +14,7 @@ int main(int argc, char *argv[]) {
         parse(argv[1]);
     }
 
-    write(1, "\n", 1);
+    printf("\n");
 
     return 0;
 }
@@ -34,7 +27,7 @@ void parse(char *str) {
         current == '-' ? program[indexn]-- : program[indexn];
 
         if (current == '.') {
-            write(1, &program[indexn], 1);
+            printf("%c", program[indexn]);
         }
 
         else if (current == '[') {
@@ -55,20 +48,4 @@ void parse(char *str) {
 
         i++;
     }
-}
-
-
-void push(int value, stack_256* stack) {
-    stack->stack[stack->top] = value;
-
-    stack->top++;
-}
-
-int pop(stack_256* stack) {
-    if (stack->top == 0) {
-        exit(1);
-    }
-
-    stack->top--;
-    return stack->stack[stack->top];
 }
