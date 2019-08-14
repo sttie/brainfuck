@@ -22,12 +22,7 @@ int main(int argc, char *argv[]) {
 }
 
 void parse(char *str) {
-    while ((current = str[i])) {
-        current == '>' ? indexn++ : indexn;
-        current == '<' ? indexn-- : indexn;
-        current == '+' ? program[indexn]++ : program[indexn];
-        current == '-' ? program[indexn]-- : program[indexn];
-        
+    while ((current = str[i])) {        
         if      (current == '>') indexn++;
         else if (current == '<') indexn--;
         else if (current == '+') program[indexn]++;
